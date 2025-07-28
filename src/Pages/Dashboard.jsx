@@ -177,7 +177,7 @@ function Dashboard() {
                 canGoNext={hasMoreProducts && products.length > 0}
             />
 
-            <UserProfile />
+       
         </div>
     );
 }
