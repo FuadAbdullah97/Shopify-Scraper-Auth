@@ -5,7 +5,6 @@ import { useLimitContext } from "@/context/ProductLimitContext.jsx";
 import { toast } from "sonner";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircleIcon } from 'lucide-react';
-import {UserProfile} from "@/components/UserProfile.jsx";
 
 function Dashboard() {
     const [inputValue, setInputValue] = useState('');
