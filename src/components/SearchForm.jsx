@@ -35,7 +35,7 @@ function SearchForm({ searchValue, onInputChange, submitAction }) {
 
                     <div className="w-full md:w-auto flex flex-col justify-end gap-2">
                         <Label htmlFor="product-limit">Product Limit</Label>
-                        <ProductLimit id="product-limit" className="h-10" />
+                        <ProuctLimit id="product-limit" className="h-10" />
                     </div>
 
 
