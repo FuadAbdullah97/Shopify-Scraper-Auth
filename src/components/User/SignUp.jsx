@@ -121,7 +121,7 @@ export default function SignUp() {
                         <div className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
                             <GalleryVerticalEnd className="size-4" />
                         </div>
-                        Acme Inc.
+                        Shopify Scraper
                     </a>
                     <LoginForm
                         handleGoogleLogInProp={handleGoogleLogIn}

@@ -12,8 +12,8 @@ import {createContext, useCallback, useContext, useMemo, useState} from "react";
 
     export const ProductLimitProvider = ({children}) => {
         const [productLimit, setProductLimit] = useState('30');
-        const handleLimitChange  = useCallback((e) => {
-            setProductLimit(e.target.value)
+        const handleLimitChange = useCallback((newValue) => {
+            setProductLimit(newValue);
         },[])
         const contextValue = useMemo(() => ({
             productLimit,

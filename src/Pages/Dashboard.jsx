@@ -2,10 +2,10 @@ import React, { useState, useCallback } from 'react';
 import SearchForm from "@/components/SearchForm.jsx";
 import ProductTable from "@/components/ProductTable.jsx";
 import { useLimitContext } from "@/context/ProductLimitContext.jsx";
-// OLD: import { useToast } from "@/components/ui/use-toast"; // <--- REMOVE THIS
-import { toast } from "sonner"; // <--- NEW IMPORT for Sonner toast function
+import { toast } from "sonner";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircleIcon } from 'lucide-react';
+import {UserProfile} from "@/components/UserProfile.jsx";
 
 function Dashboard() {
     const [inputValue, setInputValue] = useState('');
@@ -16,7 +16,6 @@ function Dashboard() {
     const [error, setError] = useState(null);
     const [hasMoreProducts, setHasMoreProducts] = useState(true);
 
-    // OLD: const { toast } = useToast(); // <--- REMOVE THIS LINE
 
     // useCallback to memoize getProduct, preventing unnecessary re-renders
     const getProduct = useCallback(async (urlInput, limit, page) => {
@@ -45,18 +44,18 @@ function Dashboard() {
             if (!data.products || data.products.length === 0) {
                 setHasMoreProducts(false);
                 if (page === 1) {
-                    toast.info("No Products Found", { // <--- Updated toast API for sonner
+                    toast.info("No Products Found", {
                         description: "No products were found for the given Shopify store URL.",
                     });
                 } else {
-                    toast.info("End of Products", { // <--- Updated toast API for sonner
+                    toast.info("End of Products", {
                         description: "You've reached the last page of products.",
                     });
                 }
             } else {
                 setProducts(data.products);
                 setHasMoreProducts(data.products.length === limit);
-                toast.success("Products Fetched Successfully", { // <--- Updated toast API for sonner
+                toast.success("Products Fetched Successfully", {
                     description: `Found ${data.products.length} products on page ${page}.`,
                 });
             }
@@ -137,7 +136,7 @@ function Dashboard() {
 
         const link = document.createElement("a");
         link.href = url;
-        link.setAttribute("download", `${inputValue + urrentPage }.csv`);
+        link.setAttribute("download", `${inputValue + currentPage }.csv`);
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -162,9 +161,10 @@ function Dashboard() {
             <SearchForm
                 searchValue={inputValue}
                 onInputChange={(e) => setInputValue(e.target.value)}
-                submitAcion={formAction}
+                submitAction={formAction}
                 isLoading={loading}
             />
+
 
             <ProductTable
                 products={products}
@@ -176,6 +176,8 @@ function Dashboard() {
                 canGoPrev={currentPage > 1}
                 canGoNext={hasMoreProducts && products.length > 0}
             />
+
+            <UserProfile />
         </div>
     );
 }

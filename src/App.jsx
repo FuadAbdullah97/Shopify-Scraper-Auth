@@ -27,6 +27,7 @@ function App() {
                     {/* This route is now protected by the ProtectedRoute component */}
                     <Route element={<ProtectedRoute />}>
                         <Route path="/dashboard" element={<Dashboard />} />
+
                         {/* Add any other routes that should be protected here */}
                         {/* <Route path="/settings" element={<SettingsPage />} /> */}
                     </Route>
