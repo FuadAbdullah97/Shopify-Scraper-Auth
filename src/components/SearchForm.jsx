@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Search } from "lucide-react"; // Using a search icon
 
 
-import ProductLimit from "./ProductLimit.jsx";
+import ProuctLimit from "@/components/ProuctLimit.jsx";
 
 function SearchForm({ searchValue, onInputChange, submitAction }) {
     return (
